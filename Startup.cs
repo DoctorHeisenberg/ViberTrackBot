@@ -20,7 +20,6 @@ namespace TrackBot4
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -30,8 +29,8 @@ namespace TrackBot4
 
             services.AddViberBotApi(opt =>
             {
-                opt.Token = "4fa0966056a7e4ea-8de72c2dcaca11ee-a3aad3c8ff06e899";
-                opt.Webhook = "https://f193-185-183-93-68.eu.ngrok.io/viber";
+                opt.Token = Configuration["ViberToken"];
+                opt.Webhook = Configuration["ViberWebhook"];
             });
         }
 

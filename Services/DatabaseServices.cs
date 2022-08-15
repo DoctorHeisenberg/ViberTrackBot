@@ -69,7 +69,7 @@ namespace TrackBot4.Services
         {
             try
             {
-                using (SqlConnection connection = new(connectionString: "Data Source=ARCHIBASE\\SQLEXPRESS;Initial Catalog=Track;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))
+                using (SqlConnection connection = new(connectionString: _configuration["ConnectionStrings:DefaultConnection"]))
                 {
                     var param = new DynamicParameters();
                     string spName = "fullDistance";
